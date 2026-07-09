@@ -1,9 +1,7 @@
 const fs = require('fs')
-const {Buffer} = require('buffer')
 const { resolve } = require('node:path');
 
 const packageFileParh = resolve(__dirname, './files/package.json')
-const packageLoclFilePath = resolve(__dirname, './files/package-lock.json')
 
 async function read() {
     // 读取 package.json 文件并检查依赖
