@@ -1,0 +1,103 @@
+{
+  "name": "auth_center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "commit": "git-cz",
+    "prepare": "husky",
+    "dev": "concurrently \"pnpm run -C apps/admin dev\" \"pnpm run -C apps/account dev\"",
+    "dev:admin": "pnpm -F admin dev",
+    "dev:account": "pnpm -F account dev",
+    "build:admin": "pnpm -F admin build",
+    "build:account": "pnpm -F account build",
+    "dep:admin": "pnpm -F admin dep",
+    "dep:account": "pnpm -F account dep",
+    "lint": "eslint ./apps/*/src/**/*.{js,jsx,vue,ts,tsx} ./packages/**/*.{js,jsx,vue,ts,tsx}",
+    "lint:fix": "eslint ./apps/*/src/**/*.{js,jsx,vue,ts,tsx} ./packages/**/*.{js,jsx,vue,ts,tsx}",
+    "format": "prettier --write ./apps/*/src/**/*.{js,jsx,vue,ts,tsx,scss} ./packages/**/*.{js,jsx,vue,ts,tsx}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "lint-staged": {
+    "./apps/*/src/**/*.{js,jsx,vue,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "./packages/**/*.{js,jsx,vue,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "description": "新增一个功能"
+        },
+        "fix": {
+          "description": "修复bug"
+        },
+        "docs": {
+          "description": "仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等等"
+        },
+        "style": {
+          "description": "仅仅修改了空格、格式缩进等等，不改变代码逻辑"
+        },
+        "refactor": {
+          "description": "代码重构，没有加新功能或者修复bug"
+        },
+        "perf": {
+          "description": "优化相关，比如提升性能、体验"
+        },
+        "test": {
+          "description": "测试用例，包括增加缺失用例或者修正测试用例"
+        },
+        "build": {
+          "description": "影响构建系统或外部依赖关系的更改（示例作用域：gulp、broccoli、npm）"
+        },
+        "ci": {
+          "description": "更改我们的ci配置文件和脚本（示例范围：Travis、Circle、BrowserStack、SauceLabs）"
+        },
+        "chore": {
+          "description": "其他不修改src或测试文件的更改"
+        },
+        "revert": {
+          "description": "恢复之前的提交"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "commitizen": "^4.3.1",
+    "concurrently": "^9.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.21.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-vue": "^9.31.0",
+    "gulp": "^5.0.0",
+    "gulp-ssh": "^0.7.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "sass": "^1.80.7",
+    "sharp": "^0.35.2",
+    "typescript": "^5.6.3",
+    "vue-tsc": "^2.1.10",
+    "yargs": "^17.7.2"
+  }
+}
